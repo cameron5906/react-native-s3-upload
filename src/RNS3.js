@@ -42,7 +42,7 @@ export class RNS3 {
     const method = "POST"
     const policy = S3Policy.generate(options)
 
-    return Request.create(url, method, policy, { 'SessionToken': sessionToken})
+    return Request.create(url, method, policy, { 'X-Amz-Security-Token': sessionToken})
       .set("file", file)
       .send()
       .then(setBodyAsParsedXML)
